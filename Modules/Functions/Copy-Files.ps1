@@ -20,6 +20,7 @@ Copy-Files -Source "\\path\to\source\file.txt" -Destination "C:\Windows\Temp"
 Copy-Files -Source "\\path\to\source\folder1" -Destination "C:\Windows\Temp\SubFolder"
 
 .NOTES
+
 #>
 
     [CmdletBinding()]
@@ -45,7 +46,7 @@ Copy-Files -Source "\\path\to\source\folder1" -Destination "C:\Windows\Temp\SubF
 
         do
         {
-            $TransferJob = Get-BitsTransfer -JobId $TransferJob.-JobId
+            $TransferJob = Get-BitsTransfer -JobId $TransferJob.JobId
             $Transferred = [math]::round($TransferJob.BytesTransferred/1MB,2)
             $Total = [math]::round($TransferJob.BytesTotal/1MB,2)
             
